@@ -1,3 +1,142 @@
+# Proyecto Backend Node.js & Express - Módulo 8
+
+## Descripción
+Este proyecto consiste en el desarrollo de una aplicación backend utilizando Node.js y Express, que permite la gestión de usuarios mediante una API RESTful.
+
+La aplicación incluye:
+- Servidor web funcional
+- Persistencia de datos
+- Operaciones CRUD
+- Subida de archivos
+- Autenticación mediante JWT
+- Protección de rutas
+
+El proyecto fue desarrollado de manera progresiva a lo largo de los módulos 6, 7 y 8.
+
+---
+
+## Tecnologías utilizadas
+
+- Node.js  
+- Express  
+- Sequelize (ORM)  
+- MySQL  
+- Multer (subida de archivos)  
+- JSON Web Token (JWT)  
+- Dotenv  
+
+---
+
+## Instalación y ejecución
+
+1. Clonar el repositorio  
+2. Instalar dependencias:
+
+npm install
+
+3. Crear archivo `.env`:
+
+PORT=3000
+JWT_SECRET=secreto123
+DB_NAME=...
+DB_USER=...
+DB_PASS=...
+
+4. Ejecutar el servidor:
+
+npm run dev
+
+El servidor estará disponible en:
+
+http://localhost:3000
+
+---
+
+## Endpoints principales
+
+### Públicos
+
+POST /api/login  
+Permite generar un token JWT.
+
+Body:
+{
+"email": "test@test.com"
+}
+
+---
+
+### Protegidos (requieren token)
+
+GET /api/usuarios → Obtener usuarios  
+POST /api/usuarios → Crear usuario  
+PUT /api/usuarios/:id → Actualizar usuario  
+DELETE /api/usuarios/:id → Eliminar usuario  
+
+---
+
+## Autenticación
+
+La aplicación utiliza JWT (JSON Web Token) para proteger rutas.
+
+Para acceder a endpoints protegidos, se debe incluir el token en los headers:
+
+Authorization: TU_TOKEN
+
+Si el token no es enviado o es inválido, la API responde con error de autorización.
+
+---
+
+## Subida de archivos
+
+Se implementó un endpoint para la carga de archivos utilizando Multer:
+
+POST /api/upload
+
+- Permite subir imágenes al servidor  
+- Los archivos se almacenan en la carpeta `/uploads`  
+- Se genera un nombre único para evitar conflictos  
+
+---
+
+## Justificación técnica
+
+Se optó por una arquitectura modular separando rutas, controladores y middlewares, lo que permite una mejor organización del código y facilita su mantenimiento.
+
+Se utilizó Sequelize como ORM para abstraer las consultas SQL, facilitando el manejo de modelos y relaciones.
+
+La autenticación se implementó mediante JWT, ya que permite manejar sesiones sin estado de forma segura.
+
+Para la subida de archivos se utilizó Multer, debido a su integración sencilla con Express.
+
+---
+
+## Reflexión final
+
+Durante el desarrollo de este proyecto se integraron los conocimientos adquiridos en los módulos 6, 7 y 8, permitiendo construir una aplicación backend completa.
+
+En el módulo 6 se establecieron las bases del servidor y la estructura del proyecto.  
+En el módulo 7 se incorporó la persistencia de datos y operaciones CRUD.  
+En el módulo 8 se implementó una API RESTful con autenticación y subida de archivos.
+
+Este proceso permitió comprender el flujo completo de una aplicación backend, desde su configuración inicial hasta la exposición de servicios seguros y funcionales.
+
+---
+
+## Estado del proyecto
+
+- Servidor funcional  
+- CRUD completo  
+- Conexión a base de datos  
+- API REST implementada  
+- Subida de archivos  
+- Autenticación con JWT  
+- Rutas protegidas  
+
+
+-----------------------------------
+
+
 # Proyecto Backend Node.js - Módulo 7
 
 Este proyecto corresponde al desarrollo de una aplicación backend utilizando Node.js y Express como parte del Módulo 7: Acceso a Datos en Aplicaciones Node.
