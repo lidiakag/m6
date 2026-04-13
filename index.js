@@ -23,3 +23,7 @@ app.use("/api", userRoutes);
 app.listen(PORT, () => {
   console.log(`Servidor iniciado en http://localhost:${PORT}`);
 });
+
+const uploadRoutes = require("./src/routes/upload.routes");
+
+app.use("/api", uploadRoutes);
