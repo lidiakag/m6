@@ -27,3 +27,7 @@ app.listen(PORT, () => {
 const uploadRoutes = require("./src/routes/upload.routes");
 
 app.use("/api", uploadRoutes);
+
+const authRoutes = require("./src/routes/auth.routes");
+
+app.use("/api", authRoutes);
